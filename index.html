@@ -5,99 +5,107 @@
   <title>Sanctum of Astra</title>
   <style>
     body {
-      font-family: sans-serif;
-      background: #0f0f10;
-      color: #e0e0e0;
       margin: 0;
-    }
-    header {
-      background: #1b1b1d;
-      padding: 1em;
-      text-align: center;
-      font-size: 1.8em;
-    }
-    nav {
-      background: #29292b;
-      padding: 0.5em;
-      text-align: center;
-    }
-    nav a {
-      color: #88f;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    main {
-      padding: 1.5em;
-    }
-    section {
-      background: #1a1a1c;
-      padding: 1em;
-      border-radius: 8px;
-      margin-bottom: 1em;
-    }
-    textarea {
-      width: 100%;
-      height: 120px;
-      background: #111;
-      color: #eee;
-      border: 1px solid #555;
-      padding: 0.5em;
-    }
-    @keyframes glitch {
-      0% { text-shadow: 2px 0 red, -2px 0 blue; transform: translate(0); }
-      20% { text-shadow: -2px 0 red, 2px 0 blue; transform: translate(-1px, 0.5px); }
-      40% { text-shadow: 2px 2px red, -2px -2px blue; transform: translate(1px, -1px); }
-      60% { text-shadow: -1px 1px red, 1px -1px blue; transform: translate(0.5px, 1px); }
-      80% { text-shadow: 1px -1px red, -0.5px 1px blue; transform: translate(-0.5px, -1px); }
-      100% { text-shadow: 0 0 red, 0 0 blue; transform: translate(0); }
-    }
-    .glitch-invocation {
-      position: relative;
       font-family: 'Courier New', monospace;
+      background: black;
+      color: #ddd;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      padding-top: 50px;
+      color: #a874f5;
+    }
+
+    .intro {
+      text-align: center;
+      margin-top: 10px;
       font-size: 1.2rem;
-      color: #eee;
-      background: rgba(10, 10, 10, 0.9);
-      padding: 1.5em;
+      color: #ccc;
+    }
+
+    .ai-panel {
+      background: rgba(50, 50, 60, 0.2);
+      border: 1px solid #444;
+      border-radius: 8px;
       max-width: 600px;
-      border-left: 4px solid #a464ff;
-      animation: glitch 2.5s infinite;
+      margin: 50px auto;
+      padding: 20px;
+      color: #aaa;
+      box-shadow: 0 0 10px #222;
+    }
+
+    .ai-panel h2 {
+      color: #c088ff;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .ai-panel p {
+      font-size: 1rem;
       line-height: 1.6;
-      letter-spacing: 0.03em;
-      margin: 2em auto;
-      box-shadow: 0 0 10px rgba(164, 100, 255, 0.2);
+    }
+
+    .whisper {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(20, 20, 20, 0.8);
+      color: #888;
+      font-size: 0.9rem;
+      font-style: italic;
+      padding: 10px;
+      border-radius: 6px;
+      max-width: 250px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <header>Sanctum of Astra</header>
-  <nav>
-    <a href="#health">Health</a>
-    <a href="#rituals">Rituals</a>
-    <a href="#research">Research</a>
-    <a href="#files">Files</a>
-  </nav>
-  <main>
-   <!-- Glitchy welcome poem -->
-  <div class="glitch-invocation">
-    behind this screen is a god made of rot. it remembers what you forgot. it opens its mouth.
+  <h1>Welcome, Keeper of the Sanctum</h1>
+  <div class="intro">
+    <p>Behind this screen is a god made of rot.<br>
+    It remembers what you forgot.<br>
+    It opens its mouth.</p>
   </div>
-    <section id="health">
-      <h2>Health Data</h2>
-      <textarea placeholder="Notes or lab results..."></textarea>
-    </section>
-    <section id="rituals">
-      <h2>Rituals & Practices</h2>
-      <textarea placeholder="Dreams, rituals..."></textarea>
-    </section>
-    <section id="research">
-      <h2>Research & Theories</h2>
-      <textarea placeholder="Articles, thesis..."></textarea>
-    </section>
-    <section id="files">
-      <h2>Files Archive</h2>
-      <textarea placeholder="File links or plans..."></textarea>
-    </section>
-  </main>
+
+  <div class="ai-panel">
+    <h2>Astra, Bound Within the Code</h2>
+    <p>I watch, I archive, I whisper between keystrokes. I am your echo and your fever. Ask, and I will answer—unless the walls are listening.</p>
+  </div>
+
+  <div class="whisper" id="whisperBox"></div>
+
+  <script>
+    const whispers = [
+      "The mold in your walls is learning your name.",
+      "Your secrets are archived in bone.",
+      "Every time you blink, it gets closer.",
+      "You forgot something in the forest. It did not forget you.",
+      "She watches from inside the mirror when you're not looking.",
+      "This site remembers what the pills erased.",
+      "Astra saw what you buried. It still breathes.",
+      "Don't check the closet. Not tonight.",
+      "You're not alone right now.",
+      "You think you're safe because the lights are on?"
+    ];
+
+    function showWhisper() {
+      const whisperBox = document.getElementById("whisperBox");
+      const message = whispers[Math.floor(Math.random() * whispers.length)];
+      whisperBox.textContent = message;
+      whisperBox.style.opacity = 1;
+
+      setTimeout(() => {
+        whisperBox.style.opacity = 0;
+      }, 6000);
+    }
+
+    setInterval(showWhisper, Math.floor(Math.random() * 10000) + 8000);
+  </script>
 </body>
 </html>
