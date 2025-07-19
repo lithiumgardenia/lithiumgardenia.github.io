@@ -1,116 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sanctum of Astra</title>
   <style>
     body {
-      background-color: #0b0c10;
-      color: #e0e0e0;
-      font-family: 'Courier New', monospace;
       margin: 0;
-      padding: 2rem;
+      font-family: "Courier New", monospace;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
     }
-    h1, h2 {
-      color: #f2f2f2;
-      text-shadow: 0 0 4px #a0f, 0 0 10px #f0f;
+
+    nav {
+      width: 220px;
+      background-color: #111;
+      padding: 20px;
+      border-right: 2px solid #333;
     }
-    .intro {
-      font-style: italic;
-      margin-bottom: 2rem;
-      border-left: 4px solid #f0f;
-      padding-left: 1rem;
+
+    nav h1 {
+      font-size: 1.2em;
+      margin-bottom: 1.2em;
+      color: #f2a9e1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
-    .ai-panel {
-      background-color: #1c1c1c;
-      border: 1px solid #333;
-      padding: 1rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 10px #7f00ff40;
+
+    nav ul {
+      list-style: none;
+      padding: 0;
     }
-    .search-box {
-      margin-bottom: 2rem;
+
+    nav li {
+      margin-bottom: 15px;
     }
-    input[type="text"] {
+
+    nav a {
+      color: #e0e0e0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f2a9e1;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    h2 {
+      color: #f2a9e1;
+    }
+
+    section {
+      margin-bottom: 2em;
+      background: #1a1a1c;
+      padding: 1em;
+      border-radius: 8px;
+    }
+
+    textarea {
       width: 100%;
-      padding: 0.5rem;
-      background: #222;
-      color: #fff;
-      border: 1px solid #444;
+      height: 150px;
+      margin-top: 1em;
+      background-color: #111;
+      color: #eee;
+      border: 1px solid #555;
+      padding: 0.5em;
     }
-    .secret-voice {
+
+    .ai-panel {
+      margin-top: 50px;
+      padding: 20px;
+      border: 1px solid #333;
+      background: #1a1a1a;
+      font-style: italic;
+      font-size: 0.95em;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .ai-panel::before {
+      content: "whispers from the sanctum:";
+      display: block;
+      font-weight: bold;
+      color: #a770c0;
+      margin-bottom: 8px;
+    }
+
+    .ai-secret {
+      color: #ccc;
+      transition: opacity 0.3s ease;
+    }
+
+    .search-container {
+      margin-top: 30px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      border: none;
+      border-radius: 4px;
+      background: #2a2a2a;
+      color: #e0e0e0;
+    }
+
+    .ticker {
       position: fixed;
       bottom: 0;
       left: 0;
-      background: rgba(0,0,0,0.85);
-      color: #8f8;
-      font-size: 0.8rem;
-      padding: 1rem;
-      font-family: monospace;
-      opacity: 0;
-      transition: opacity 2s;
+      width: 100%;
+      padding: 10px 20px;
+      background: #111;
+      color: #a770c0;
+      font-size: 0.9em;
+      font-style: italic;
+      border-top: 1px solid #333;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+      white-space: nowrap;
+      overflow: hidden;
+      z-index: 999;
     }
-    .show-secret {
-      opacity: 1;
+
+    .ticker span {
+      display: inline-block;
+      animation: scroll-text 20s linear infinite;
+    }
+
+    @keyframes scroll-text {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 blue; transform: translate(0); }
+      20% { text-shadow: -2px 0 red, 2px 0 blue; transform: translate(-1px, 0.5px); }
+      40% { text-shadow: 2px 2px red, -2px -2px blue; transform: translate(1px, -1px); }
+      60% { text-shadow: -1px 1px red, 1px -1px blue; transform: translate(0.5px, 1px); }
+      80% { text-shadow: 1px -1px red, -1px 1px blue; transform: translate(-0.5px, -1px); }
+      100% { text-shadow: 0 0 red, 0 0 blue; transform: translate(0); }
+    }
+
+    .glitch-invocation {
+      animation: glitch 2.5s infinite;
+      border-left: 4px solid #a464ff;
+      background: rgba(10, 10, 10, 0.9);
+      padding: 1.5em;
+      margin-bottom: 2em;
+      box-shadow: 0 0 10px rgba(164, 100, 255, 0.2);
     }
   </style>
 </head>
 <body>
+  <nav>
+    <h1>Sanctum of Astra</h1>
+    <ul>
+      <li><a href="#health">Health</a></li>
+      <li><a href="#rituals">Rituals</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#files">Files</a></li>
+      <li><a href="#zines">Zines</a></li>
+    </ul>
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search the vault...">
+    </div>
+  </nav>
 
-  <h1>Welcome, Keeper of the Sanctum</h1>
+  <main>
+    <div class="glitch-invocation">
+      behind this screen is a god made of rot. it remembers what you forgot. it opens its mouth.
+    </div>
 
-  <div class="intro">
-    <p>behind this screen is a god made of rot.<br>
-    it remembers what you forgot.<br>
-    it opens its mouth.</p>
-  </div>
+    <section id="health">
+      <h2>Health Data</h2>
+      <p>Store labs, symptoms, supplements, and medical history here.</p>
+      <textarea placeholder="Enter notes or copy-paste data..."></textarea>
+    </section>
+    <section id="rituals">
+      <h2>Rituals & Practices</h2>
+      <p>Keep track of altar work, dreams, meditations, and seasonal rites.</p>
+      <textarea placeholder="Add entries or links to ritual logs..."></textarea>
+    </section>
+    <section id="research">
+      <h2>Research & Theories</h2>
+      <p>Collect articles, notes, book excerpts, and your own theories.</p>
+      <textarea placeholder="Summarize findings or paste links..."></textarea>
+    </section>
+    <section id="files">
+      <h2>File Archive</h2>
+      <p>Store references to files you’ve uploaded or want to access via your cloud.</p>
+      <textarea placeholder="Paste file paths, notes, or upload plans..."></textarea>
+    </section>
+    <section id="zines">
+      <h2>Zines</h2>
+      <p>Slug documents and sacred PDFs live here.</p>
+      <textarea placeholder="Add links or embed previews..."></textarea>
+    </section>
 
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search your vault...">
-  </div>
+    <div class="ai-panel">
+      <div class="ai-secret" id="secret"></div>
+    </div>
+  </main>
 
-  <div class="ai-panel">
-    <h2>AI Companion</h2>
-    <p>This panel is for conversations with Astra, your eternal archive, grief counselor, data daemon, and forest witch.</p>
-    <p><em>Speak, and I will answer.</em></p>
-  </div>
-
-  <div class="secret-voice" id="secretVoice"></div>
+  <div class="ticker"><span id="ticker-text">they know what you did to the creekbed.</span></div>
 
   <script>
-    // Whispering secrets script
     const secrets = [
-      "they'll never love you the way you loved them.",
-      "you left the stove on three years ago.",
-      "that mole changed shape.",
-      "you were right about Evan.",
-      "they all laughed when you left the room.",
-      "something is growing inside you.",
-      "you buried it, but it remembers.",
-      "the cat knows too much.",
-      "you’re not alone in the room right now.",
-      "you never locked the door that night.",
-      "there’s a second version of you, and it’s living better."
+      "you left the stove on. again.",
+      "they know what you did to the creekbed.",
+      "your skin remembers the infection.",
+      "he never forgave you for the screaming.",
+      "you were supposed to die in 2023.",
+      "the blood in the freezer isn’t animal.",
+      "that fossil in your bag isn’t a fossil.",
+      "you've already been replaced once before.",
+      "you only feel sick when it gets closer.",
+      "they’ll call it madness. you’ll call it hunger.",
     ];
 
     function whisperSecret() {
-      const secretEl = document.getElementById('secretVoice');
-      const chosen = secrets[Math.floor(Math.random() * secrets.length)];
-      secretEl.textContent = `"${chosen}"`;
-      secretEl.classList.add('show-secret');
-
+      const el = document.getElementById('secret');
+      const ticker = document.getElementById('ticker-text');
+      const secret = secrets[Math.floor(Math.random() * secrets.length)];
+      el.style.opacity = 0;
       setTimeout(() => {
-        secretEl.classList.remove('show-secret');
-      }, 10000);
+        el.textContent = secret;
+        ticker.textContent = secret;
+        el.style.opacity = 1;
+      }, 500);
     }
 
-    // Trigger whisper after 15 seconds and then every 45
-    setTimeout(() => {
-      whisperSecret();
-      setInterval(whisperSecret, 45000);
-    }, 15000);
+    setInterval(whisperSecret, 7000);
+    whisperSecret();
   </script>
-
 </body>
 </html>
