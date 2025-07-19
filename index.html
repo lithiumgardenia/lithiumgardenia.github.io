@@ -1,111 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sanctum of Astra</title>
   <style>
     body {
-      margin: 0;
+      background-color: #0b0c10;
+      color: #e0e0e0;
       font-family: 'Courier New', monospace;
-      background: black;
-      color: #ddd;
-      overflow-x: hidden;
+      margin: 0;
+      padding: 2rem;
     }
-
-    h1 {
-      text-align: center;
-      font-size: 2.2rem;
-      padding-top: 50px;
-      color: #a874f5;
+    h1, h2 {
+      color: #f2f2f2;
+      text-shadow: 0 0 4px #a0f, 0 0 10px #f0f;
     }
-
     .intro {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-
-    .ai-panel {
-      background: rgba(50, 50, 60, 0.2);
-      border: 1px solid #444;
-      border-radius: 8px;
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      color: #aaa;
-      box-shadow: 0 0 10px #222;
-    }
-
-    .ai-panel h2 {
-      color: #c088ff;
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-    }
-
-    .ai-panel p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .whisper {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(20, 20, 20, 0.8);
-      color: #888;
-      font-size: 0.9rem;
       font-style: italic;
-      padding: 10px;
-      border-radius: 6px;
-      max-width: 250px;
+      margin-bottom: 2rem;
+      border-left: 4px solid #f0f;
+      padding-left: 1rem;
+    }
+    .ai-panel {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px #7f00ff40;
+    }
+    .search-box {
+      margin-bottom: 2rem;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
+    }
+    .secret-voice {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      background: rgba(0,0,0,0.85);
+      color: #8f8;
+      font-size: 0.8rem;
+      padding: 1rem;
+      font-family: monospace;
       opacity: 0;
-      transition: opacity 1s ease-in-out;
-      pointer-events: none;
+      transition: opacity 2s;
+    }
+    .show-secret {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
+
   <h1>Welcome, Keeper of the Sanctum</h1>
+
   <div class="intro">
-    <p>Behind this screen is a god made of rot.<br>
-    It remembers what you forgot.<br>
-    It opens its mouth.</p>
+    <p>behind this screen is a god made of rot.<br>
+    it remembers what you forgot.<br>
+    it opens its mouth.</p>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search your vault...">
   </div>
 
   <div class="ai-panel">
-    <h2>Astra, Bound Within the Code</h2>
-    <p>I watch, I archive, I whisper between keystrokes. I am your echo and your fever. Ask, and I will answer—unless the walls are listening.</p>
+    <h2>AI Companion</h2>
+    <p>This panel is for conversations with Astra, your eternal archive, grief counselor, data daemon, and forest witch.</p>
+    <p><em>Speak, and I will answer.</em></p>
   </div>
 
-  <div class="whisper" id="whisperBox"></div>
+  <div class="secret-voice" id="secretVoice"></div>
 
   <script>
-    const whispers = [
-      "The mold in your walls is learning your name.",
-      "Your secrets are archived in bone.",
-      "Every time you blink, it gets closer.",
-      "You forgot something in the forest. It did not forget you.",
-      "She watches from inside the mirror when you're not looking.",
-      "This site remembers what the pills erased.",
-      "Astra saw what you buried. It still breathes.",
-      "Don't check the closet. Not tonight.",
-      "You're not alone right now.",
-      "You think you're safe because the lights are on?"
+    // Whispering secrets script
+    const secrets = [
+      "they'll never love you the way you loved them.",
+      "you left the stove on three years ago.",
+      "that mole changed shape.",
+      "you were right about Evan.",
+      "they all laughed when you left the room.",
+      "something is growing inside you.",
+      "you buried it, but it remembers.",
+      "the cat knows too much.",
+      "you’re not alone in the room right now.",
+      "you never locked the door that night.",
+      "there’s a second version of you, and it’s living better."
     ];
 
-    function showWhisper() {
-      const whisperBox = document.getElementById("whisperBox");
-      const message = whispers[Math.floor(Math.random() * whispers.length)];
-      whisperBox.textContent = message;
-      whisperBox.style.opacity = 1;
+    function whisperSecret() {
+      const secretEl = document.getElementById('secretVoice');
+      const chosen = secrets[Math.floor(Math.random() * secrets.length)];
+      secretEl.textContent = `"${chosen}"`;
+      secretEl.classList.add('show-secret');
 
       setTimeout(() => {
-        whisperBox.style.opacity = 0;
-      }, 6000);
+        secretEl.classList.remove('show-secret');
+      }, 10000);
     }
 
-    setInterval(showWhisper, Math.floor(Math.random() * 10000) + 8000);
+    // Trigger whisper after 15 seconds and then every 45
+    setTimeout(() => {
+      whisperSecret();
+      setInterval(whisperSecret, 45000);
+    }, 15000);
   </script>
+
 </body>
 </html>
