@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Drug House Journals of a Leopard Slug, Vol. I</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>The Drug House Journals of a Leopard Slug</h1>
+    <h2>Volume I — “I Lick the Ceiling and Dream of Rain”</h2>
+    <p>by Norman Fucking Slugwell</p>
+  </header>
+
+  <main class="zine">
+    <img src="images/slug-vol1.png" alt="Zine Cover" class="zine-cover">
+
+    <article>
+      <h3>Day 1: Under the Broken Outlet</h3>
+      <p>I woke up beneath a Gatorade cap and three cigarette butts.
+      The humans scream in autotune. They call each other “bitch” and “bro” with equal ferocity. 
+      I don’t know if they’re in love or war.
+      A man dropped a pill and I tried to eat it. It did not love me back.
+      I hallucinated a forest for five hours.
+      I cried clear tears. 
+      I am lonely.</p>
+
+      <h3>Day 3: The Fridge is Humming to Me Again</h3>
+      <p>The fridge is my only friend.
+      It smells like old blood and expired joy.
+      Sometimes a single pea rolls beneath the door, and I feast like a king.
+      A girl named Rae thinks I’m a hallucination.
+      She calls me “God’s Worm.”
+      I let her.
+      She cried when her boyfriend stole her Adderall. I left a mucus trail on her sock.
+      I think that’s what love is.</p>
+
+      <h3>Day 6: I Saw a Mouse Die</h3>
+      <p>Its neck snapped in a trap behind the washing machine.
+      We made eye contact as the life left its body.
+      I whispered, “I will carry you.”
+      I tried to eat a piece of his whisker.
+      Why do I do these things?</p>
+
+      <h3>Day 9: He Who Sleeps on the Couch</h3>
+      <p>There is a man who never leaves the couch.
+      He watches Fast & Furious 7 on a loop and mutters “family” with tears in his eyes.
+      He smells like Mountain Dew Code Red and despair.
+      Sometimes, he drools. I collect it in a leaf and pretend it’s holy water.
+      I anoint my mantle with it.
+      I am losing touch.</p>
+
+      <h3>Day 13: The Ritual</h3>
+      <p>They lit a candle inside a Sprite bottle.
+      They burned something in a spoon.
+      I don’t know what it was but it made the ceiling flicker like fireflies.
+      Someone called it “the sacrament.”
+      I crawled through a line of sugar.
+      I think it was coke.
+      I blacked out and woke up on a Bible.</p>
+
+      <h3>Day 17: The Dream</h3>
+      <p>I dreamed of a hand.
+      Gentle, not grabbing. Cool fingers, moss-sweet breath.
+      They scooped me into a container lined with leaves and love.
+      The air smelled like soap and safety.
+      I wept upon waking.
+      But I felt something shift in the moldy floorboards.
+      Someone is coming for me.
+      Someone kind.</p>
+
+      <h3>Day 18: Caleb</h3>
+      <p>He arrived like prophecy.
+      Eyes like grief and glitter.
+      He called me beautiful.
+      He picked me up with reverence and tucked me into a plastic bin with holes in the top.
+      He told me I was safe.
+      He whispered things that made my mucous glands pulse with joy.
+      I think I am loved.
+      I think I have been chosen.</p>
+
+      <h3>Day 21: My New Life</h3>
+      <p>I have bark to hide under.
+      Cucumber slices appear like manna.
+      Sometimes I hear Lana Del Rey in the distance, and it fills the holes in my slug soul.
+      Caleb watches me.
+      He doesn’t want to hurt me.
+      He knows about rot.
+      He is beautiful in the way ghosts are beautiful.</p>
+
+      <p>I don’t remember the drug house anymore.
+      Only the way the walls wept.</p>
+
+      <p>Now I weep too. But with joy.</p>
+
+      <p>— End of Volume I —</p>
+    </article>
+  </main>
+
+  <footer>
+    <p><a href="zines.html">← Back to Zines</a></p>
+  </footer>
+</body>
+</html>
