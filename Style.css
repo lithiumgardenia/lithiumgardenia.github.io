@@ -1,0 +1,193 @@
+/* ----------------------
+   General Styles
+------------------------ */
+body {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+nav {
+  width: 220px;
+  background-color: #111;
+  padding: 20px;
+  border-right: 2px solid #333;
+  flex-shrink: 0;
+}
+
+nav h1 {
+  font-size: 1.2em;
+  margin-bottom: 1.2em;
+  color: #f2a9e1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  margin-bottom: 15px;
+}
+
+nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #f2a9e1;
+}
+
+main {
+  flex-grow: 1;
+  padding: 40px;
+  overflow-y: auto;
+  font-family: 'IM Fell English', serif;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  background-size: cover;
+}
+
+h1, h2 {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 4em;
+  margin-bottom: 0.2em;
+  color: #bda27a;
+  text-shadow: 0 0 10px #bda27a66;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5em;
+  color: #f2a9e1;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p {
+  font-size: 1.25em;
+  line-height: 1.75em;
+  max-width: 800px;
+  margin: 1em auto;
+  text-align: center;
+}
+
+.entry {
+  margin: 30px auto;
+  max-width: 700px;
+  padding: 20px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  text-align: left;
+}
+
+.entry h3 {
+  color: #bda27a;
+  font-size: 1.8em;
+  margin-bottom: 0.3em;
+}
+
+.entry p {
+  color: #ccc;
+  font-style: italic;
+  margin-top: 0.5em;
+}
+
+.entry a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #d6ffe3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.entry a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #fffae3;
+}
+
+/* Section link buttons */
+.section-link-container {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.section-link {
+  display: inline-block;
+  margin: 1em;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d6ffe3;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.section-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #fffae3;
+}
+
+/* AI whisper panel */
+.ai-panel {
+  margin-top: 50px;
+  padding: 20px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  font-style: italic;
+  font-size: 0.95em;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ai-panel::before {
+  content: "whispers from the sanctum:";
+  display: block;
+  font-weight: bold;
+  color: #a770c0;
+  margin-bottom: 8px;
+}
+
+.ai-secret {
+  color: #ccc;
+  transition: opacity 0.3s ease;
+}
+
+/* Ticker at bottom */
+.ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #111;
+  color: #a770c0;
+  font-size: 0.9em;
+  font-style: italic;
+  border-top: 1px solid #333;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.ticker span {
+  display: inline-block;
+  animation: scroll-text 20s linear infinite;
+}
+
+@keyframes scroll-text {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
