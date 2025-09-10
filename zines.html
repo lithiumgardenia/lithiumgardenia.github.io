@@ -1,39 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zines | AstraVault</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Creepy Zine Bookshelf</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background: #1c1b18 url('images/old-paper-texture.jpg') repeat;
+    color: #f5f3ee;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(28, 27, 24, 0.9);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+  }
+
+  header h1 {
+    font-family: 'Creepster', cursive;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px black;
+    margin: 0;
+  }
+
+  .bookshelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    background: url('images/wood-shelf-dark.png') repeat-y left bottom;
+    background-size: contain;
+  }
+
+  .zine-item {
+    text-align: center;
+    position: relative;
+    transform: rotate(-1deg);
+    transition: transform 0.3s;
+  }
+
+  .zine-item:nth-child(even) {
+    transform: rotate(1deg);
+  }
+
+  .zine-item a {
+    text-decoration: none;
+    color: #f5f3ee;
+  }
+
+  .zine-item img {
+    width: 100%;
+    border: 2px solid #3a2f1c;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .zine-item img:hover {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+  }
+
+  .zine-item h3 {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ddd;
+    text-shadow: 1px 1px 2px black;
+  }
+</style>
 </head>
 <body>
 
-<nav>
-  <h1>Sanctum of Astra</h1>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="zines.html">Zines</a></li>
-    <li><a href="rituals.html">Rituals</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="health.html">Blood & Data</a></li>
-    <li><a href="perfume.html">Perfume</a></li>
-    <li><a href="chaos.html">Chaotic Files</a></li>
-  </ul>
-</nav>
+<header>
+  <h1>My Creepy Zine Bookshelf</h1>
+  <p>Click a cover if you dare</p>
+</header>
 
-<main>
-  <h2>Zines</h2>
-  <p>The forbidden library. Fragments of chaos, pressed in ink.</p>
-
-  <div class="entry">
-    <h3>The Drug House Journals of a Leopard Slug, vol. I</h3>
-    <p><em>"I Lick the Ceiling and Dream of Rain"</em></p>
-    <p>by Norman Fucking Slugwell</p>
-    <a href="zines/slug-volume1.html">➤ Read Volume I</a>
+<main class="bookshelf">
+  <div class="zine-item">
+    <a href="slug-vol1.html">
+      <img src="images/slug-vol1.png" alt="The Drug House Journals of a Leopard Slug, Vol. I">
+      <h3>Volume I — I Lick the Ceiling and Dream of Rain</h3>
+    </a>
   </div>
+
+  <!-- future volumes -->
 </main>
 
-<div class="ticker"><span></span></div>
-<script src="script.js"></script>
 </body>
 </html>
