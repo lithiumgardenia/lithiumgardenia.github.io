@@ -1,14 +1,18 @@
 /* ----------------------
    General Styles
 ------------------------ */
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: "Courier New", monospace;
   background-color: #0d0d0d;
   color: #e0e0e0;
+}
+
+/* Layout: fixed nav, scrollable main */
+body {
   display: flex;
-  min-height: 100vh;
-  overflow: hidden;
 }
 
 nav {
@@ -17,44 +21,25 @@ nav {
   padding: 20px;
   border-right: 2px solid #333;
   flex-shrink: 0;
-}
-
-nav h1 {
-  font-size: 1.2em;
-  margin-bottom: 1.2em;
-  color: #f2a9e1;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-nav li {
-  margin-bottom: 15px;
-}
-
-nav a {
-  color: #e0e0e0;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #f2a9e1;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* scroll nav if too long */
 }
 
 main {
-  flex-grow: 1;
+  margin-left: 220px; /* space for fixed nav */
   padding: 40px;
-  overflow-y: auto;
   font-family: 'IM Fell English', serif;
   background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
   background-size: cover;
+  overflow-y: auto; /* scroll main content */
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
+/* Typography */
 h1, h2 {
   margin-top: 0;
 }
@@ -82,6 +67,7 @@ p {
   text-align: center;
 }
 
+/* Entries */
 .entry {
   margin: 30px auto;
   max-width: 700px;
@@ -190,4 +176,32 @@ p {
 @keyframes scroll-text {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
+}
+
+/* Nav links */
+nav h1 {
+  font-size: 1.2em;
+  margin-bottom: 1.2em;
+  color: #f2a9e1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  margin-bottom: 15px;
+}
+
+nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #f2a9e1;
 }
