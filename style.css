@@ -1,51 +1,119 @@
 /* ----------------------
-   General Styles
+   AstraVault — Global Styles
 ------------------------ */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: "Courier New", monospace;
-  background-color: #0d0d0d;
-  color: #e0e0e0;
-}
 
-/* Layout: fixed nav, scrollable main */
-body {
-  display: flex;
-}
-
-nav {
-  width: 220px;
-  background-color: #111;
-  padding: 20px;
-  border-right: 2px solid #333;
-  flex-shrink: 0;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow-y: auto; /* scroll nav if too long */
-}
-
-main {
-  margin-left: 220px; /* space for fixed nav */
-  padding: 40px;
-  font-family: 'IM Fell English', serif;
-  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-  background-size: cover;
-  overflow-y: auto; /* scroll main content */
-  min-height: 100vh;
+* {
   box-sizing: border-box;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Courier New", monospace;
+  background: #0d0d0d;
+  color: #e0e0e0;
+}
+
+/* ----------------------
+   Navigation
+------------------------ */
+
+nav {
+  width: 260px;
+  height: 100vh;
+  padding: 28px 24px;
+  background: #111;
+  border-right: 2px solid #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+nav h1 {
+  margin: 0 0 1.8em;
+  color: #f2a9e1;
+  font-size: 1.25em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: left;
+  white-space: nowrap;
+  text-shadow: 0 0 10px #f2a9e144;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-bottom: 18px;
+}
+
+nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1.05em;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #f2a9e1;
+  text-shadow: 0 0 8px #f2a9e166;
+}
+
+/* ----------------------
+   Search
+------------------------ */
+
+.search-container {
+  margin-top: 28px;
+}
+
+.search-container input {
+  width: 100%;
+  max-width: 220px;
+  padding: 9px 11px;
+  border: 1px solid #444;
+  border-radius: 7px;
+  background: #f4f4f4;
+  color: #111;
+  font: inherit;
+}
+
+/* ----------------------
+   Main Content
+------------------------ */
+
+main {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  min-height: 100vh;
+  padding: 55px clamp(28px, 6vw, 90px) 90px;
+  font-family: Georgia, "Times New Roman", serif;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  background-size: auto;
+}
+
 /* Typography */
-h1, h2 {
+
+h1,
+h2 {
   margin-top: 0;
 }
 
-h1 {
-  font-size: 4em;
+main > h1 {
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
   margin-bottom: 0.2em;
   color: #bda27a;
   text-shadow: 0 0 10px #bda27a66;
@@ -53,25 +121,28 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   color: #f2a9e1;
   margin-bottom: 0.5em;
   text-align: center;
 }
 
 p {
-  font-size: 1.25em;
-  line-height: 1.75em;
+  font-size: 1.15em;
+  line-height: 1.7;
   max-width: 800px;
   margin: 1em auto;
   text-align: center;
 }
 
-/* Entries */
+/* ----------------------
+   Archive Entries
+------------------------ */
+
 .entry {
-  margin: 30px auto;
-  max-width: 700px;
-  padding: 20px;
+  width: min(100%, 560px);
+  margin: 28px auto;
+  padding: 24px 28px;
   border: 1px solid #333;
   background: #1a1a1a;
   text-align: left;
@@ -79,30 +150,35 @@ p {
 
 .entry h3 {
   color: #bda27a;
-  font-size: 1.8em;
-  margin-bottom: 0.3em;
+  font-size: 1.55em;
+  line-height: 1.2;
+  margin: 0 0 0.45em;
 }
 
 .entry p {
   color: #ccc;
+  font-size: 1em;
   font-style: italic;
-  margin-top: 0.5em;
+  line-height: 1.5;
+  margin: 0.6em 0;
+  text-align: left;
 }
 
 .entry a {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 8px;
   color: #d6ffe3;
   text-decoration: none;
   font-weight: bold;
 }
 
 .entry a:hover {
-  color: #ffffff;
+  color: #fff;
   text-shadow: 0 0 10px #fffae3;
 }
 
 /* Section link buttons */
+
 .section-link-container {
   text-align: center;
   margin-top: 2em;
@@ -111,7 +187,7 @@ p {
 .section-link {
   display: inline-block;
   margin: 1em;
-  font-size: 1.4em;
+  font-size: 1.25em;
   text-transform: uppercase;
   text-decoration: none;
   color: #d6ffe3;
@@ -120,21 +196,22 @@ p {
 }
 
 .section-link:hover {
-  color: #ffffff;
+  color: #fff;
   text-shadow: 0 0 10px #fffae3;
 }
 
-/* AI whisper panel */
+/* ----------------------
+   AI Whisper Panel
+------------------------ */
+
 .ai-panel {
-  margin-top: 50px;
+  width: min(100%, 600px);
+  margin: 50px auto 0;
   padding: 20px;
   border: 1px solid #333;
   background: #1a1a1a;
   font-style: italic;
   font-size: 0.95em;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .ai-panel::before {
@@ -150,7 +227,10 @@ p {
   transition: opacity 0.3s ease;
 }
 
-/* Ticker at bottom */
+/* ----------------------
+   Ticker
+------------------------ */
+
 .ticker {
   position: fixed;
   bottom: 0;
@@ -178,30 +258,114 @@ p {
   100% { transform: translateX(-100%); }
 }
 
-/* Nav links */
-nav h1 {
-  font-size: 1.2em;
-  margin-bottom: 1.2em;
-  color: #f2a9e1;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+/* ----------------------
+   Mobile
+------------------------ */
+
+@media (max-width: 800px) {
+  body {
+    display: block;
+  }
+
+  nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 18px 20px 16px;
+    border-right: 0;
+    border-bottom: 2px solid #333;
+    overflow: visible;
+  }
+
+  nav h1 {
+    margin-bottom: 14px;
+    font-size: 1.1em;
+  }
+
+  nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 18px;
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  nav a {
+    font-size: 0.95em;
+  }
+
+  .search-container {
+    margin-top: 16px;
+  }
+
+  .search-container input {
+    width: 100%;
+    max-width: none;
+  }
+
+  main {
+    margin-left: 0;
+    width: 100%;
+    min-height: auto;
+    padding: 38px 20px 85px;
+  }
+
+  main > h1 {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+    line-height: 0.95;
+  }
+
+  h2 {
+    font-size: clamp(2.4rem, 12vw, 3.6rem);
+    line-height: 1;
+  }
+
+  main > p {
+    font-size: 1.08em;
+    line-height: 1.55;
+  }
+
+  .entry {
+    width: 100%;
+    max-width: 460px;
+    padding: 20px;
+    margin: 22px auto;
+  }
+
+  .entry h3 {
+    font-size: 1.35em;
+  }
+
+  .entry p {
+    font-size: 0.98em;
+  }
+
+  .ticker {
+    font-size: 0.78em;
+  }
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-}
+/* Very small phones */
 
-nav li {
-  margin-bottom: 15px;
-}
+@media (max-width: 420px) {
+  nav ul {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
 
-nav a {
-  color: #e0e0e0;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+  nav a {
+    font-size: 1em;
+  }
 
-nav a:hover {
-  color: #f2a9e1;
+  main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .entry {
+    padding: 18px;
+  }
 }
