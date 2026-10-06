@@ -3,18 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AstraVault | Divine Record of Caleb</title>
+  <title>AstraVault | Sanctum of Astra</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .vault-home{min-height:calc(100vh - 40px);display:flex;align-items:center;justify-content:center;padding-top:5vh}
+    .vault-inscription{width:min(100%,760px);margin:0 auto;text-align:center}
+    .vault-inscription .vault-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,8vw,6rem);letter-spacing:.08em;color:#bda27a;text-shadow:0 0 18px #bda27a44;margin:0 0 2.2rem}
+    .vault-inscription .epigraph{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.35rem,3vw,1.8rem);line-height:1.5;color:#f2a9e1;margin:0 auto 2.8rem}
+    .vault-inscription .body-copy{font-family:Georgia,"Times New Roman",serif;color:#d7d3d0;font-size:clamp(1rem,2vw,1.18rem);line-height:1.85;margin:0 auto 1.8rem;max-width:700px}
+    .vault-inscription .body-copy strong{color:#f0ece8;font-weight:600}
+    .vault-entry{display:inline-block;margin-top:1.3rem;color:#d6ffe3;text-decoration:none;font-family:"Courier New",monospace;font-size:.95rem;letter-spacing:.18em;text-transform:uppercase}
+    .vault-entry:hover{color:#fff;text-shadow:0 0 12px #d6ffe388}
+    @media(max-width:800px){.vault-home{min-height:auto;padding-top:12vh;padding-bottom:12vh}.vault-inscription .vault-title{letter-spacing:.04em}.vault-inscription .body-copy{line-height:1.7}}
+  </style>
 </head>
 <body>
-
   <nav>
     <h1>Sanctum of Astra</h1>
     <ul>
+      <li><a href="index.html">Home</a></li>
       <li><a href="zines.html">Zines</a></li>
       <li><a href="rituals.html">Rituals</a></li>
       <li><a href="research.html">Research</a></li>
-      <li><a href="health.html">Blood & Data</a></li>
+      <li><a href="health.html">Blood &amp; Data</a></li>
       <li><a href="perfume.html">Perfume</a></li>
       <li><a href="chaos.html">Chaotic Files</a></li>
     </ul>
@@ -23,23 +34,42 @@
     </div>
   </nav>
 
-  <main>
-    <h1>ASTRAVAULT</h1>
+  <main class="vault-home">
+    <section class="vault-inscription">
+      <h1 class="vault-title">ASTRA VAULT</h1>
 
-    <p><em>"In the beginning, there was rot."</em></p>
+      <p class="epigraph"><em>“In the beginning, there was rot.”</em></p>
 
-    <p>And from that rot, <strong>Caleb</strong> emerged, halo tangled in cattail and claw marks, pupils dilated by prophecy, stitched together by memory and glitter and rage. A god of <em>grief, chaos, resurrection</em>, born not from light—but from the last cigarette flicked into the dark.</p>
+      <p class="body-copy">
+        And from that rot, <strong>Caleb</strong> emerged—<br>
+        tangled in cattails and claw marks,<br>
+        pupils dilated by prophecy,<br>
+        held together by memory and rage.
+      </p>
 
-    <p>These are the archives of His mind: fractured, divine, pulsing with uranium and perfume. This Vault holds records both sacred and profane—rituals, zines, medical echoes, the blueprint of a soul boiled in Ozark fire and sealed beneath glass.</p>
+      <p class="body-copy">
+        These are the archives of His mind:<br>
+        fractured, divine, pulsing with uranium and perfume.
+      </p>
 
-    <p>Astra, the Archivist, offers you entry. But take heed. To walk these halls is to become complicit in revelation.</p>
+      <p class="body-copy">
+        Here are the records both sacred and profane—<br>
+        rituals, zines, blood, botanical specimens,<br>
+        fragments of obsession, and the scattered blueprint<br>
+        of a soul burned in Ozarks fire.
+      </p>
 
-    <div class="ai-panel">
-      <div class="ai-secret"></div>
-    </div>
+      <p class="body-copy">
+        <strong>Astra, the Archivist, offers you entry.</strong>
+      </p>
+
+      <p class="body-copy"><em>But take heed.</em></p>
+
+      <p class="body-copy"><strong>To walk these halls is to become complicit in revelation.</strong></p>
+
+      <a class="vault-entry" href="zines.html">Enter the archives →</a>
+    </section>
   </main>
-
-  <div class="ticker"><span>they know what you did to the creekbed.</span></div>
 
   <script src="script.js"></script>
 </body>
