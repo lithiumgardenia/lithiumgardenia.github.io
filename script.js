@@ -13,16 +13,30 @@ const secrets = [
 
 function whisperSecret() {
   const el = document.querySelector('.ai-secret');
-  const ticker = document.querySelector('.ticker span');
+  if (!el) return;
   const secret = secrets[Math.floor(Math.random() * secrets.length)];
   el.style.opacity = 0;
   setTimeout(() => {
     el.textContent = secret;
-    ticker.textContent = secret;
     el.style.opacity = 1;
   }, 500);
 }
 
-// change secret every 7 seconds
-setInterval(whisperSecret, 7000);
-whisperSecret();
+function addSectionTicker() {
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  if (path === 'index.html' || path === '') return;
+  const ticker = document.createElement('div');
+  ticker.className = 'ticker';
+  ticker.innerHTML = '<span></span>';
+  document.body.appendChild(ticker);
+  const span = ticker.querySelector('span');
+  const update = () => { span.textContent = secrets[Math.floor(Math.random() * secrets.length)]; };
+  update();
+  setInterval(update, 7000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  whisperSecret();
+  setInterval(whisperSecret, 7000);
+  addSectionTicker();
+});
