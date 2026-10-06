@@ -6,38 +6,51 @@
 <title>My Creepy Zine Bookshelf</title>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 <style>
+  * {
+    box-sizing: border-box;
+  }
+
   body {
-    font-family: 'Georgia', serif;
+    font-family: Georgia, serif;
     background: #1c1b18 url('images/old-paper-texture.jpg') repeat;
     color: #f5f3ee;
     margin: 0;
-    padding: 0;
+    min-height: 100vh;
   }
 
   header {
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 1.25rem;
     background: rgba(28, 27, 24, 0.9);
     box-shadow: 0 2px 6px rgba(0,0,0,0.8);
   }
 
   header h1 {
     font-family: 'Creepster', cursive;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    line-height: 1.05;
     text-shadow: 2px 2px 4px black;
     margin: 0;
   }
 
+  header p {
+    margin: 1rem 0 0;
+    font-size: 1.05rem;
+  }
+
   .bookshelf {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 30px;
-    padding: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 220px));
+    justify-content: center;
+    align-items: start;
+    gap: 34px;
+    padding: 42px 24px 70px;
     background: url('images/wood-shelf-dark.png') repeat-y left bottom;
     background-size: contain;
   }
 
   .zine-item {
+    width: 220px;
     text-align: center;
     position: relative;
     transform: rotate(-1deg);
@@ -49,12 +62,17 @@
   }
 
   .zine-item a {
+    display: block;
     text-decoration: none;
     color: #f5f3ee;
   }
 
   .zine-item img {
+    display: block;
     width: 100%;
+    max-width: 220px;
+    height: auto;
+    margin: 0 auto;
     border: 2px solid #3a2f1c;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     border-radius: 4px;
@@ -63,15 +81,31 @@
   }
 
   .zine-item img:hover {
-    transform: scale(1.08) rotate(-2deg);
+    transform: scale(1.04) rotate(-2deg);
     box-shadow: 0 15px 40px rgba(0,0,0,0.9);
   }
 
   .zine-item h3 {
-    margin-top: 10px;
+    margin: 12px 0 0;
     font-size: 0.9rem;
+    line-height: 1.35;
     color: #ddd;
     text-shadow: 1px 1px 2px black;
+  }
+
+  @media (max-width: 520px) {
+    .bookshelf {
+      grid-template-columns: 180px;
+      padding: 34px 16px 65px;
+    }
+
+    .zine-item {
+      width: 180px;
+    }
+
+    .zine-item img {
+      max-width: 180px;
+    }
   }
 </style>
 </head>
@@ -83,16 +117,12 @@
 </header>
 
 <main class="bookshelf">
-  <!-- Volume 1 -->
   <div class="zine-item">
     <a href="slugvol1.html">
       <img src="737EE205-4124-42C7-9A43-1299CD511D98.png" alt="The Drug House Journals of a Leopard Slug, Vol. I">
       <h3>Volume I — I Lick the Ceiling and Dream of Rain</h3>
     </a>
   </div>
-
-  <!-- Future volumes -->
-  <!-- Copy this block and change href, image, and title for new zines -->
 </main>
 
 </body>
