@@ -1,4 +1,40 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Plant Index | AstraVault</title><link rel="stylesheet" href="style.css"></head><body><nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Index | AstraVault</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.plant-page{max-width:1000px;margin:0 auto}
+.plant-intro{text-align:center;margin-bottom:48px}
+.plant-intro h1{color:#f2a9e1;font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,8vw,5rem);line-height:1;margin:0 0 28px;text-shadow:0 0 10px #f2a9e144}
+.plant-intro p{max-width:700px;margin:0 auto;color:#e0e0e0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.05rem,3vw,1.3rem);line-height:1.6}
+.plant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,260px));justify-content:center;gap:42px;padding:10px 24px 70px}
+.plant-card{margin:0;text-align:center}
+.plant-card button{display:block;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:zoom-in}
+.plant-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;margin:0 auto;border:2px solid #3a2f1c;box-shadow:0 10px 30px rgba(0,0,0,.8);border-radius:4px;transition:transform .2s ease,box-shadow .2s ease}
+.plant-card button:hover img,.plant-card button:focus-visible img{transform:scale(1.025);box-shadow:0 15px 40px rgba(0,0,0,.9)}
+.plant-card button:focus-visible{outline:2px solid #f2a9e1;outline-offset:6px}
+.plant-card figcaption{padding-top:14px}
+.plant-card h2{margin:0;color:#e0e0e0;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;line-height:1.35;text-align:center}
+.plant-card .latin{display:block;margin-top:4px;color:#bda27a;font-family:Georgia,"Times New Roman",serif;font-size:.95rem;font-style:italic}
+.plant-card .hint{display:block;margin-top:8px;color:#8f8880;font-family:Georgia,"Times New Roman",serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+
+.plant-lightbox{width:min(94vw,900px);max-height:92vh;padding:0;border:1px solid #594b35;background:#111;color:#e0e0e0;box-shadow:0 20px 80px rgba(0,0,0,.9)}
+.plant-lightbox::backdrop{background:rgba(0,0,0,.82)}
+.plant-lightbox-inner{padding:22px}
+.plant-lightbox img{display:block;width:100%;max-height:62vh;object-fit:contain;background:#080808;border:1px solid #30281c}
+.plant-lightbox h2{margin:22px 0 4px;color:#f2a9e1;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,4vw,2.3rem);text-align:left}
+.plant-lightbox .latin{margin:0 0 12px;color:#bda27a;font-family:Georgia,"Times New Roman",serif;font-style:italic}
+.plant-lightbox .description{margin:0;color:#d7d3d0;font-family:Georgia,"Times New Roman",serif;line-height:1.65;text-align:left}
+.plant-lightbox .close{position:absolute;top:10px;right:10px;width:38px;height:38px;border:1px solid #6d5a3c;border-radius:50%;background:#111;color:#e0e0e0;font-size:1.35rem;line-height:1;cursor:pointer}
+.plant-lightbox .close:hover,.plant-lightbox .close:focus-visible{color:#f2a9e1;border-color:#f2a9e1}
+@media(max-width:520px){.plant-intro{margin-bottom:38px}.plant-intro h1{font-size:3rem;margin-bottom:20px}.plant-grid{grid-template-columns:minmax(180px,1fr);padding:0 16px 65px;gap:34px}.plant-card{max-width:260px;width:100%;margin:0 auto}.plant-lightbox-inner{padding:16px}.plant-lightbox img{max-height:55vh}}
+</style>
+</head>
+<body>
+<nav>
   <h1>Sanctum of Astra</h1>
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -9,4 +45,58 @@
     <li><a href="perfume.html">Perfume House</a></li>
     <li><a href="rituals.html">Rituals</a></li>
   </ul>
-</nav><main><h2>Plant Index</h2><p>Plants identified, catalogued, observed, and preserved in the archive.</p><div class="entry"><h3>Index Established</h3><p><em>A living catalogue of botanical encounters.</em></p><p>Species entries will be added as they are identified and documented.</p></div></main><script src="script.js"></script></body></html>
+</nav>
+
+<main>
+  <div class="plant-page">
+    <header class="plant-intro">
+      <h1>Plant Index</h1>
+      <p>Plants identified, catalogued, observed, and preserved in the archive.</p>
+    </header>
+
+    <section class="plant-grid" aria-label="Plant specimens">
+      <figure class="plant-card">
+        <button type="button" class="plant-open" aria-label="Open Common sunflower specimen">
+          <img src="images/plant-index/common-sunflower.jpg" alt="Branching common sunflower with one yellow flower and one orange-bicolored flower beneath a dark sky">
+        </button>
+        <figcaption>
+          <h2>Common sunflower</h2>
+          <span class="latin">Helianthus annuus</span>
+          <span class="hint">Open specimen</span>
+        </figcaption>
+      </figure>
+    </section>
+  </div>
+</main>
+
+<dialog class="plant-lightbox" aria-labelledby="plant-lightbox-title">
+  <div class="plant-lightbox-inner">
+    <button type="button" class="close" aria-label="Close specimen">×</button>
+    <img src="images/plant-index/common-sunflower.jpg" alt="Branching common sunflower with one yellow flower and one orange-bicolored flower beneath a dark sky">
+    <h2 id="plant-lightbox-title">Common sunflower</h2>
+    <p class="latin">Helianthus annuus</p>
+    <p class="description"><strong>Likely a branching ornamental/bicolored cultivar or hybrid.</strong></p>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const dialog = document.querySelector('.plant-lightbox');
+  const openButton = document.querySelector('.plant-open');
+  const closeButton = dialog.querySelector('.close');
+
+  openButton.addEventListener('click', () => {
+    dialog.showModal();
+    closeButton.focus();
+  });
+
+  closeButton.addEventListener('click', () => dialog.close());
+
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+})();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
