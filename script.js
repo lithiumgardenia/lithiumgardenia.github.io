@@ -39,4 +39,26 @@ document.addEventListener('DOMContentLoaded', () => {
   whisperSecret();
   setInterval(whisperSecret, 7000);
   addSectionTicker();
+  loadGoatCounter();
 });
+
+function loadGoatCounter() {
+  const counter = document.querySelector('#vault-visitor-count');
+
+  const goat = document.createElement('script');
+  goat.async = true;
+  goat.src = 'https://gc.zgo.at/count.js';
+  goat.dataset.goatcounter = 'https://lithiumgardenia.goatcounter.com/count';
+
+  goat.onload = () => {
+    if (!counter || !window.goatcounter || !window.goatcounter.visit_count) return;
+
+    window.goatcounter.visit_count({
+      path: 'TOTAL',
+      append: '#vault-visitor-count',
+      no_branding: true
+    });
+  };
+
+  document.head.appendChild(goat);
+}
