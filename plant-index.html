@@ -13,14 +13,12 @@
 .plant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,260px));justify-content:center;gap:42px;padding:10px 24px 70px}
 .plant-card{margin:0;text-align:center}
 .plant-card button{display:block;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:zoom-in}
-.plant-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;margin:0 auto;border:2px solid #3a2f1c;box-shadow:0 10px 30px rgba(0,0,0,.8);border-radius:4px;transition:transform .2s ease,box-shadow .2s ease}
+.plant-card img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;margin:0 auto;border:2px solid #3a2f1c;box-shadow:0 10px 30px rgba(0,0,0,.8);border-radius:4px;transition:transform .2s ease,box-shadow .2s ease}
 .plant-card button:hover img,.plant-card button:focus-visible img{transform:scale(1.025);box-shadow:0 15px 40px rgba(0,0,0,.9)}
 .plant-card button:focus-visible{outline:2px solid #f2a9e1;outline-offset:6px}
 .plant-card figcaption{padding-top:14px}
 .plant-card h2{margin:0;color:#e0e0e0;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;line-height:1.35;text-align:center}
 .plant-card .latin{display:block;margin-top:4px;color:#bda27a;font-family:Georgia,"Times New Roman",serif;font-size:.95rem;font-style:italic}
-.plant-card .hint{display:block;margin-top:8px;color:#8f8880;font-family:Georgia,"Times New Roman",serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
-
 .plant-lightbox{width:min(94vw,900px);max-height:92vh;padding:0;border:1px solid #594b35;background:#111;color:#e0e0e0;box-shadow:0 20px 80px rgba(0,0,0,.9)}
 .plant-lightbox::backdrop{background:rgba(0,0,0,.82)}
 .plant-lightbox-inner{padding:22px}
@@ -57,12 +55,12 @@
     <section class="plant-grid" aria-label="Plant specimens">
       <figure class="plant-card">
         <button type="button" class="plant-open" aria-label="View Common sunflower specimen">
-          <img src="IMG_9554.jpeg" alt="Branching common sunflower with one yellow flower and one orange-bicolored flower beneath a dark sky">
+          <img src="IMG_9554.jpeg?v=20261007" alt="Branching common sunflower with one yellow flower and one orange-bicolored flower beneath a dark sky" loading="eager" decoding="async" fetchpriority="high">
         </button>
         <figcaption>
           <h2>Common sunflower</h2>
           <span class="latin">Helianthus annuus</span>
-          </figcaption>
+        </figcaption>
       </figure>
     </section>
   </div>
@@ -71,7 +69,7 @@
 <dialog class="plant-lightbox" aria-labelledby="plant-lightbox-title">
   <div class="plant-lightbox-inner">
     <button type="button" class="close" aria-label="Close specimen">×</button>
-    <img src="images/plant-index/common-sunflower.jpg" alt="Branching common sunflower with one yellow flower and one orange-bicolored flower beneath a dark sky">
+    <img src="IMG_9554.jpeg?v=20261007" alt="Branching common sunflower with one yellow flower and one orange-bicolored flower beneath a dark sky" decoding="async">
     <h2 id="plant-lightbox-title">Common sunflower</h2>
     <p class="latin">Helianthus annuus</p>
     <p class="description"><strong>Likely a branching ornamental/bicolored cultivar or hybrid.</strong></p>
