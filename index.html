@@ -16,6 +16,9 @@
     .vault-inscription .epigraph{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.35rem,3vw,1.8rem);line-height:1.5;color:#f2a9e1;margin:0 auto 2.8rem}
     .vault-inscription .body-copy{font-family:Georgia,"Times New Roman",serif;color:#d7d3d0;font-size:clamp(1rem,2vw,1.18rem);line-height:1.85;margin:0 auto 1.8rem;max-width:700px}
     .vault-inscription .body-copy strong{color:#f0ece8;font-weight:600}
+    .vault-inscription .archive-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:2.8rem auto 0;max-width:680px}
+    .vault-inscription .archive-links a{display:block;padding:14px 10px;border:1px solid #333;background:#1a1a1a;color:#d6ffe3;text-decoration:none;text-transform:uppercase;letter-spacing:.08em;font-weight:bold;transition:all .25s ease}
+    .vault-inscription .archive-links a:hover{color:#fff;border-color:#f2a9e1;text-shadow:0 0 8px #f2a9e166}
     .vault-inscription .ai-panel{margin-top:2.8rem;margin-bottom:0}
     @media(max-width:800px){.vault-home{min-height:auto;padding-top:12vh;padding-bottom:12vh}.vault-inscription .vault-title{letter-spacing:.04em}.vault-inscription .body-copy{line-height:1.7}}
   </style>
@@ -26,9 +29,11 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="zines.html">Zines</a></li>
-      <li><a href="rituals.html">Rituals</a></li>
+      <li><a href="field-archive.html">Field Archive</a></li>
       <li><a href="research.html">Research</a></li>
-      <li><a href="perfume.html">Perfume</a></li>
+      <li><a href="plant-index.html">Plant Index</a></li>
+      <li><a href="perfume.html">Perfume House</a></li>
+      <li><a href="rituals.html">Rituals</a></li>
     </ul>
     <div class="search-container">
       <input type="text" id="search" placeholder="Search the vault...">
@@ -44,6 +49,14 @@
       <p class="body-copy"><strong>Astra, the Archivist, offers you entry.</strong></p>
       <p class="body-copy"><em>But take heed.</em></p>
       <p class="body-copy"><strong>To walk these halls is to become complicit in revelation.</strong></p>
+      <div class="archive-links" aria-label="AstraVault sections">
+        <a href="zines.html">Zines</a>
+        <a href="field-archive.html">Field Archive</a>
+        <a href="research.html">Research</a>
+        <a href="plant-index.html">Plant Index</a>
+        <a href="perfume.html">Perfume House</a>
+        <a href="rituals.html">Rituals</a>
+      </div>
       <div class="ai-panel"><span class="ai-secret"></span></div>
     </section>
   </main>
