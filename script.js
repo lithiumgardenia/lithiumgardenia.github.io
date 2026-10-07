@@ -44,21 +44,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadGoatCounter() {
   const counter = document.querySelector('#vault-visitor-count');
+  if (!counter) return;
 
   const goat = document.createElement('script');
-  goat.async = true;
   goat.src = 'https://gc.zgo.at/count.js';
   goat.dataset.goatcounter = 'https://lithiumgardenia.goatcounter.com/count';
+  document.head.appendChild(goat);
 
-  goat.onload = () => {
-    if (!counter || !window.goatcounter || !window.goatcounter.visit_count) return;
+  // GoatCounter's documented pattern is to wait until count.js
+  // has exposed visit_count(), then request the site total.
+  const timer = setInterval(() => {
+    if (!window.goatcounter || !window.goatcounter.visit_count) return;
+
+    clearInterval(timer);
 
     window.goatcounter.visit_count({
-      path: 'TOTAL',
       append: '#vault-visitor-count',
+      path: 'TOTAL',
       no_branding: true
     });
-  };
-
-  document.head.appendChild(goat);
+  }, 100);
 }
