@@ -12,10 +12,10 @@
 .plant-intro p{max-width:700px;margin:0 auto;color:#e0e0e0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.05rem,3vw,1.3rem);line-height:1.6}
 .plant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,260px));justify-content:center;gap:42px;padding:10px 24px 70px}
 .plant-card{margin:0;text-align:center}
-.plant-card button{display:block;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:zoom-in}
 .plant-card img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;margin:0 auto;border:2px solid #3a2f1c;box-shadow:0 10px 30px rgba(0,0,0,.8);border-radius:4px;transition:transform .2s ease,box-shadow .2s ease}
-.plant-card button:hover img,.plant-card button:focus-visible img{transform:scale(1.025);box-shadow:0 15px 40px rgba(0,0,0,.9)}
-.plant-card button:focus-visible{outline:2px solid #f2a9e1;outline-offset:6px}
+.plant-card img:hover,.plant-card img:focus-visible{transform:scale(1.025);box-shadow:0 15px 40px rgba(0,0,0,.9)}
+.plant-card img{cursor:zoom-in}
+.plant-card img:focus-visible{outline:2px solid #f2a9e1;outline-offset:6px}
 .plant-card figcaption{padding-top:14px}
 .plant-card h2{margin:0;color:#e0e0e0;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;line-height:1.35;text-align:center}
 .plant-card .latin{display:block;margin-top:4px;color:#bda27a;font-family:Georgia,"Times New Roman",serif;font-size:.95rem;font-style:italic}
@@ -54,9 +54,7 @@
 
     <section class="plant-grid" aria-label="Plant specimens">
       <figure class="plant-card">
-        <button type="button" class="plant-open" aria-label="View Common sunflower specimen">
-          <img src="IMG_9554.jpeg?v=20261007" alt="Branching common sunflower with one yellow flower and one orange-bicolored flower beneath a dark sky" loading="eager" decoding="async" fetchpriority="high">
-        </button>
+        <img src="IMG_9554.jpeg?v=20261007" alt="Branching common sunflower with one yellow flower and one orange-bicolored flower beneath a dark sky" loading="eager" decoding="async" fetchpriority="high" tabindex="0">
         <figcaption>
           <h2>Common sunflower</h2>
           <span class="latin">Helianthus annuus</span>
@@ -79,12 +77,20 @@
 <script>
 (() => {
   const dialog = document.querySelector('.plant-lightbox');
-  const openButton = document.querySelector('.plant-open');
   const closeButton = dialog.querySelector('.close');
 
-  openButton.addEventListener('click', () => {
+  const plantImage = document.querySelector('.plant-card img');
+  plantImage.addEventListener('click', () => {
     dialog.showModal();
     closeButton.focus();
+  });
+
+  plantImage.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      dialog.showModal();
+      closeButton.focus();
+    }
   });
 
   closeButton.addEventListener('click', () => dialog.close());
