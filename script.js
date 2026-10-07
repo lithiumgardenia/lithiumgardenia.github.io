@@ -46,22 +46,37 @@ function loadGoatCounter() {
   const counter = document.querySelector('#vault-visitor-count');
   if (!counter) return;
 
+  // Load GoatCounter for normal pageview tracking.
   const goat = document.createElement('script');
+  goat.async = true;
   goat.src = 'https://gc.zgo.at/count.js';
   goat.dataset.goatcounter = 'https://lithiumgardenia.goatcounter.com/count';
   document.head.appendChild(goat);
 
-  // GoatCounter's documented pattern is to wait until count.js
-  // has exposed visit_count(), then request the site total.
-  const timer = setInterval(() => {
-    if (!window.goatcounter || !window.goatcounter.visit_count) return;
+  // Use GoatCounter's documented JSON endpoint for the visible total.
+  // This avoids embedding GoatCounter's counter HTML/iframe, which was
+  // returning the 403 page in Safari.
+  const request = new XMLHttpRequest();
+  request.open(
+    'GET',
+    'https://lithiumgardenia.goatcounter.com/counter/TOTAL.json',
+    true
+  );
+  request.addEventListener('load', () => {
+    if (request.status < 200 || request.status >= 300) return;
 
-    clearInterval(timer);
+    try {
+      const data = JSON.parse(request.responseText);
+      if (typeof data.count !== 'string' && typeof data.count !== 'number') return;
 
-    window.goatcounter.visit_count({
-      append: '#vault-visitor-count',
-      path: 'TOTAL',
-      no_branding: true
-    });
-  }, 100);
+      counter.innerHTML = '';
+      const number = document.createElement('span');
+      number.textContent = String(data.count);
+      number.id = 'gcvc-views';
+      counter.appendChild(number);
+    } catch (_) {
+      // Leave the placeholder in place if GoatCounter returns invalid JSON.
+    }
+  });
+  request.send();
 }
