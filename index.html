@@ -16,6 +16,11 @@
     .vault-inscription .epigraph{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.35rem,3vw,1.8rem);line-height:1.5;color:#f2a9e1;margin:0 auto 2.8rem}
     .vault-inscription .body-copy{font-family:Georgia,"Times New Roman",serif;color:#d7d3d0;font-size:clamp(1rem,2vw,1.18rem);line-height:1.85;margin:0 auto 1.8rem;max-width:700px}
     .vault-inscription .body-copy strong{color:#f0ece8;font-weight:600}    .vault-inscription .ai-panel{margin-top:2.8rem;margin-bottom:0}
+    .vault-visitor-counter{margin:2.8rem auto 2.2rem;text-align:center;opacity:.92}
+    .vault-visitor-counter .counter-label{font-family:Georgia,"Times New Roman",serif;font-size:.7rem;letter-spacing:.22em;color:#9e8b70;text-transform:uppercase;margin-bottom:.45rem}
+    #vault-visitor-count{min-height:2.2rem;display:flex;align-items:center;justify-content:center}
+    #vault-visitor-count #gcvc-views{font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;letter-spacing:.08em;color:#bda27a;text-shadow:0 0 12px #bda27a33}
+    #vault-visitor-count #gcvc-for,#vault-visitor-count #gcvc-by{font-family:Georgia,"Times New Roman",serif;color:#8f8880;font-size:.68rem;letter-spacing:.07em}
     @media(max-width:800px){.vault-home{min-height:auto;padding-top:12vh;padding-bottom:12vh}.vault-inscription .vault-title{letter-spacing:.04em}.vault-inscription .body-copy{line-height:1.7}}
   </style>
 </head>
@@ -45,6 +50,12 @@
       <p class="body-copy"><strong>Astra, the Archivist, offers you entry.</strong></p>
       <p class="body-copy"><em>But take heed.</em></p>
       <p class="body-copy"><strong>To walk these halls is to become complicit in revelation.</strong></p>
+
+      <div class="vault-visitor-counter" aria-label="Total AstraVault visits">
+        <div class="counter-label">The Sanctum has been entered</div>
+        <div id="vault-visitor-count" aria-live="polite"><span aria-hidden="true">…</span></div>
+      </div>
+
       <div class="ai-panel"><span class="ai-secret"></span></div>
     </section>
   </main>
